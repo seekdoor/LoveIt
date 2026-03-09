@@ -140,8 +140,8 @@
   # 搜索配置
   [params.search]
     enable = false
-    # type of search engine ["lunr", "algolia"]
-    # 搜索引擎的类型 ["lunr", "algolia"]
+    # type of search engine ["lunr", "algolia", "fuse", "pagefind"]
+    # 搜索引擎的类型 ["lunr", "algolia", "fuse", "pagefind"]
     type = "lunr"
     # max index length of the chunked content
     # 文章内容最长索引长度
@@ -165,6 +165,19 @@
       index = ""
       appID = ""
       searchKey = ""
+    [params.search.fuse]
+      # https://fusejs.io/api/options.html
+      isCaseSensitive = false
+      minMatchCharLength = 2
+      findAllMatches = false
+      location = 0
+      threshold = 0.3
+      distance = 100
+      ignoreLocation = false
+    [params.search.pagefind]
+      # Pagefind base path (run "npx pagefind --site public" after hugo build)
+      # Pagefind 基础路径 (在 hugo 构建后运行 "npx pagefind --site public")
+      basePath = "/_pagefind/"
 
   # Home page config
   # 主页信息设置
